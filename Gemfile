@@ -37,5 +37,6 @@ group :test do
   gem 'json_spec'
   gem 'rails-controller-testing'
   gem 'rspec-rails'
+  gem 'shoulda-matchers'
   gem 'simplecov', require: false
 end
