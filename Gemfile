@@ -22,6 +22,7 @@ gem 'oj'
 gem 'oj_mimic_json'
 
 group :development do
+  gem 'httparty', '~> 0.16'
   gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'rubocop', '~> 0.57.2', require: false
   gem 'spring'
