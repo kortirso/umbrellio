@@ -16,9 +16,6 @@ gem 'pg', '0.21'
 # Use Puma as the app server
 gem 'puma', '~> 3.10'
 
-# Code analyzation
-gem 'rubocop', '~> 0.57.2', require: false
-
 # Model Serializers
 gem 'active_model_serializers', '~> 0.10.0'
 gem 'oj'
@@ -26,6 +23,7 @@ gem 'oj_mimic_json'
 
 group :development do
   gem 'listen', '>= 3.0.5', '< 3.2'
+  gem 'rubocop', '~> 0.57.2', require: false
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
