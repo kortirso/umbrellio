@@ -1,7 +1,7 @@
 RSpec.describe 'Posts API' do
   describe 'POST #create' do
     context 'for invalid params' do
-      let(:request) { post '/api/v1/posts.json', params: { post: { title: '', content: '', author_ip: '' }, user: { username: '' } } }
+      let(:request) { post '/api/v1/posts.json', params: { post: { title: '', content: '', author_ip: '', username: '' } } }
 
       it 'does not create post' do
         expect { request }.to_not change(Post, :count)
@@ -25,7 +25,7 @@ RSpec.describe 'Posts API' do
     end
 
     context 'for invalid post params' do
-      let(:request) { post '/api/v1/posts.json', params: { post: { title: '', content: '', author_ip: '' }, user: { username: 'something' } } }
+      let(:request) { post '/api/v1/posts.json', params: { post: { title: '', content: '', author_ip: '', username: 'something' } } }
 
       it 'does not create post' do
         expect { request }.to_not change(Post, :count)
@@ -49,7 +49,7 @@ RSpec.describe 'Posts API' do
     end
 
     context 'for valid params' do
-      let(:request) { post '/api/v1/posts.json', params: { post: { title: '1', content: '2', author_ip: '3' }, user: { username: 'something' } } }
+      let(:request) { post '/api/v1/posts.json', params: { post: { title: '1', content: '2', author_ip: '3', username: 'something' } } }
 
       it 'creates post' do
         expect { request }.to change { Post.count }.by(1)

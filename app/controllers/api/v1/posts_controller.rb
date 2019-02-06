@@ -5,12 +5,12 @@ module Api
       before_action :extract_ips, only: %i[ips_with_users]
 
       def create
-        handler = PostHandler.new(post_params, user_params)
-        if handler.valid?
-          post = handler.call
-          render json: post, serializer: PostSerializer, status: 201
+        user = UserForm.new(username: params[:post][:username]).persist
+        post_form = PostForm.new(post_params.merge(user: user))
+        if post_form.persist?
+          render json: post_form.post, serializer: PostSerializer, status: 201
         else
-          render json: { errors: handler.errors.full_messages }, status: 422
+          render json: { errors: post_form.errors.full_messages }, status: 422
         end
       end
 
@@ -34,10 +34,6 @@ module Api
 
       def post_params
         params.require(:post).permit(:title, :content, :author_ip)
-      end
-
-      def user_params
-        params.require(:user).permit(:username)
       end
     end
   end
