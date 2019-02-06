@@ -1,24 +1,19 @@
-# README
+## Umbrellio
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+#### To install application you need run commands:
 
-Things you may want to cover:
+1. `git clone https://github.com/kortirso/umbrellio`.
+2. `cd umbrellio`.
+3. `bundle install`.
+4. `rake db:create`.
+5. `rake db:migrate`.
+6. `rake db:seed` (very long period).
 
-* Ruby version
+#### To launch application:
 
-* System dependencies
+1. In project folder run `rails s`.
 
-* Configuration
+#### To launch tests:
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+1. In project folder run `rspec`.
+2. In project folder run `rubocop`.
