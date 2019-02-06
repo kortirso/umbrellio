@@ -66,12 +66,26 @@ RSpec.describe 'Posts API' do
           expect(response.status).to eq 201
         end
 
-        %w[id title content author_ip].each do |attr|
+        %w[id title content author_ip average_rate].each do |attr|
           it "and contains post #{attr}" do
             expect(response.body).to have_json_path(attr)
           end
         end
       end
+    end
+  end
+
+  describe 'GET #top' do
+    let!(:n) { 5 }
+    let!(:posts) { create_list(:post, n) }
+    before { get '/api/v1/posts/top.json', params: { n: n } }
+
+    it 'returns status 200' do
+      expect(response.status).to eq 200
+    end
+
+    it 'and returns array of popular posts' do
+      expect(JSON.parse(response.body).size).to eq n
     end
   end
 end

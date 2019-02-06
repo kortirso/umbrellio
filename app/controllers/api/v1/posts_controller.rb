@@ -1,6 +1,8 @@
 module Api
   module V1
     class PostsController < Api::V1::BaseController
+      before_action :take_best_posts, only: %i[top]
+
       def create
         handler = PostHandler.new(post_params, user_params)
         if handler.valid?
@@ -11,7 +13,15 @@ module Api
         end
       end
 
+      def top
+        render json: @posts, status: 200
+      end
+
       private
+
+      def take_best_posts
+        @posts = Post.order(average_rate: :desc).first(params[:n].to_i)
+      end
 
       def post_params
         params.require(:post).permit(:title, :content, :author_ip)

@@ -9,7 +9,7 @@ rate_service = RateCreateService.new
 
     next unless (post_index % 3).zero?
     post_id = Post.last.id
-    rand(1..5).times { rate_service.call(post_id: post_id, value: rand(1..5)) }
+    rand(5..10).times { rate_service.call(post_id: post_id, value: rand(1..5)) }
   end
   puts "User #{user_index} and his 2000 posts are created"
 end
