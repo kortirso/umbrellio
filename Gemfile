@@ -21,6 +21,9 @@ gem 'active_model_serializers', '~> 0.10.0'
 gem 'oj'
 gem 'oj_mimic_json'
 
+# Interactions
+gem 'interactor', '~> 3.0'
+
 group :development do
   gem 'httparty', '~> 0.16'
   gem 'listen', '>= 3.0.5', '< 3.2'

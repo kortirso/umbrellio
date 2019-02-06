@@ -5,7 +5,7 @@ class UserHandler
 
   validates :username, presence: true
 
-  def self.call(user_params)
+  def self.call(user_params = {})
     new(user_params).call
   end
 

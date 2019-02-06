@@ -5,7 +5,7 @@ class PostHandler
 
   validates :user, :title, :content, :author_ip, presence: true
 
-  def initialize(post_params, user_params)
+  def initialize(post_params = {}, user_params = {})
     @user = UserHandler.call(user_params)
     @title = post_params[:title]
     @content = post_params[:content]
