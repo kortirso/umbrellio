@@ -88,4 +88,18 @@ RSpec.describe 'Posts API' do
       expect(JSON.parse(response.body).size).to eq n
     end
   end
+
+  describe 'GET #ips_with_users' do
+    let!(:n) { 5 }
+    let!(:posts) { create_list(:post, n) }
+    before { get '/api/v1/posts/ips_with_users.json' }
+
+    it 'returns status 200' do
+      expect(response.status).to eq 200
+    end
+
+    it 'and contains ips_with_users' do
+      expect(response.body).to have_json_path('ips_with_users')
+    end
+  end
 end
