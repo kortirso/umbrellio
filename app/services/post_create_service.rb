@@ -9,7 +9,7 @@ class PostCreateService
   def initialize; end
 
   def call(args = {})
-    body = { post: { title: args[:title], content: args[:content], author_ip: args[:author_ip] }, user: { username: args[:username] } }
+    body = { post: { title: args[:title], content: args[:content], author_ip: args[:author_ip], username: args[:username] } }
     self.class.post('', query: body, headers: {})
   end
 end

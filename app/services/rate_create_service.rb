@@ -9,7 +9,7 @@ class RateCreateService
   def initialize; end
 
   def call(args = {})
-    body = { rate: { post_id: args[:post_id], value: args[:value] } }
+    body = { post_id: args[:post_id], rate: { value: args[:value] } }
     self.class.post('', query: body, headers: {})
   end
 end

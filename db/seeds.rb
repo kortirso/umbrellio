@@ -1,7 +1,7 @@
 post_service = PostCreateService.new
 rate_service = RateCreateService.new
 
-20.times do |user_index|
+100.times do |user_index|
   username = "user_#{user_index}"
   ip = "192.168.0.#{rand(1..3)}"
   2000.times do |post_index|
